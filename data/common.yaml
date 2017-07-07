@@ -1,2 +1,62 @@
 ---
-# simp_snmp::parameter_name: 'value'
+lookup_options:
+  simp_snmp::users:
+    merge:
+      strategy: deep
+      knockout_prefix: --
+# This will put an includeDir directive in the snmpd.conf
+# to add in amny user supplied directives not controlled by the 
+# simp module.  This will be included after the simp includeDir
+# which is /etc/snmpd/simp.snmpd.d. If a setting is allowed to
+# have more than one setting (like users, access, views) all will be 
+# included.  If it is a single setting, the last one wins.
+# see snmpd_config for more info.
+simp_snmp::snmpd::includedir: false
+simp_snmp::snmpd::includedirfqdn: /etc/snmp/snmpd.d
+
+simp_snmp::genpass: true
+#these were junk used for initial testing
+simp_snmp::rouser: 'snmp_ro'
+simp_snmp::rwuser: 'snmp_rw'
+simp_snmp::users_hash:
+  snmp_ro:
+    authpass:
+      value: 'P@ssw0rd'
+    authtype:
+      value: 'SHA'
+    privpass:
+      value: 'P@ssw0rd'
+    privtype:
+      value: 'AES'
+    type:
+      value: 'rouser'
+    security_level:
+      value: 'priv'
+    view:
+      value: 'default'
+  snmp_rw:
+    authpass:
+      value: 'P@ssw0rd'
+    authtype:
+      value: 'SHA'
+    privpass:
+      value: 'P@ssw0rd'
+    privtype:
+      value: 'AES'
+    type:
+      value: 'rouser'
+    security_level:
+      value: 'priv'
+    view:
+      value: 'default'
+# local 
+simp_snmp::local::location: 'In the yaml file'
+simp_snmp::local::contact: 'wonderful@yaml'
+# Services/packages to install
+#   Install/configure the snmpd deamon
+simp_snmp::snmpd: true
+#   Install the snmpd utilities
+simp_snmp::client: false
+#   Install the snmptrapd daemon
+simp_snmp::snmptrapd: false
+

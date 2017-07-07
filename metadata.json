@@ -1,31 +1,25 @@
 {
   "name": "simp-simp_snmp",
-  "version": "0.0.1",
-  "author": "simp",
-  "summary": "Profile module for SNMP",
+  "version": "1.0.0",
+  "author": "SIMP Team",
+  "summary": "Provides useful settings to set up the GNOME desktop environment",
   "license": "Apache-2.0",
   "source": "https://github.com/simp/pupmod-simp-simp_snmp",
   "project_page": "https://github.com/simp/pupmod-simp-simp_snmp",
   "issues_url": "https://simp-project.atlassian.net",
   "tags": [
-    "simp"
+    "simp",
+    "gnome",
+    "desktop"
   ],
   "dependencies": [
     {
-      "name": "razorsedge/puppet-snmp",
-      "version_requirement": ">= 3.8.1 < 4.0.0"
-    },
-    {
-      "name": "simp/iptables",
-      "version_requirement": ">= 6.0.1 < 7.0.0"
-    },
-    {
       "name": "simp/simplib",
-      "version_requirement": ">= 3.3.1 < 4.0.0"
+      "version_requirement": ">= 3.1.0 < 4.0.0"
     },
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 4.13.1 < 5.0.0"
+      "version_requirement": ">= 4.9.0 < 5.0.0"
     }
   ],
   "operatingsystem_support": [
@@ -52,3 +46,4 @@
   ],
   "data_provider": "hiera"
 }
+
